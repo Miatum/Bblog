@@ -101,8 +101,11 @@ public class BlogService {
     public int updateBlog(Blog blog) {
         int result = blogMapper.updateBlog(blog);
         if (result == 1) {
+            // @preBlog博客旧缓存
             Blog preBlog = (Blog) redisUtil.get("blog_" + blog.getId(), Blog.class);
+            // 单篇博客覆盖更新
             redisUtil.set("blog_" + blog.getId(), blog);
+            // 更新集合中的缓存，先删除旧的，再增加新的。
             if (redisUtil.srem("AllBlog", preBlog) == 1) {
                 redisUtil.sadd("AllBlog", blog);
             }
@@ -128,7 +131,7 @@ public class BlogService {
             Blog blog = (Blog)redisUtil.get("blog_" + id, Blog.class);
             // 删除散列缓存
             redisUtil.del("blog_" + id);
-            // 删除结合缓存
+            // 删除集合缓存
             redisUtil.srem("AllBlog", blog);
             redisUtil.srem("FeaturedBlog", blog);
             redisUtil.srem("TypeBlog_" + blog.getType_id(), blog);

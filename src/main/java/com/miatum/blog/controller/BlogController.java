@@ -74,7 +74,7 @@ public class BlogController {
         int id = blogService.lastInsertId();
         return id;
     }
-    @RequestMapping("")
+    @RequestMapping("/updatePicServer")
     @ResponseBody
     public ResponseEnum updatePicServer(@RequestBody String newServer) {
         return blogService.updatePicServer(newServer);
