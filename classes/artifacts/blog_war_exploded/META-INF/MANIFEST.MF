@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: blog
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Miatum
+Implementation-Vendor-Id: com.miatum
+Created-By: IntelliJ IDEA
+Build-Jdk: 14.0.2
+Main-Class: ${start-class}
+
