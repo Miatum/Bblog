@@ -32,7 +32,6 @@ public class TestController {
     @RequestMapping("/moyuban")
     @ResponseBody
     public String moYuBan() {
-        System.out.println(moYuBan.getMessage());
-        return "moyuban";
+        return moYuBan.getMessage();
     }
 }
