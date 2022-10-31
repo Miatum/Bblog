@@ -14,7 +14,7 @@
     <name>blog</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>14</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.17</version>
+            <version>8.0.30</version>
         </dependency>
         <!--Mybatis-->
         <dependency>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.47</version>
+            <version>2.0.14.graal</version>
         </dependency>
         <!--java email-->
         <dependency>

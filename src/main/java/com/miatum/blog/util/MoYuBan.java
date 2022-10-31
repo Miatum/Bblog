@@ -4,9 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.Period;
 import java.time.temporal.ChronoField;
-import java.util.Calendar;
 
 /**
  * @Description
@@ -51,16 +49,18 @@ public class MoYuBan {
         this.daysAfterWork = (int)(localDate.toEpochDay() - startWorkDate.toEpochDay());
         // 计算到周末的时间
         this.toWeekend = 6 - localDate.get(ChronoField.DAY_OF_WEEK);
-        // 计算节假日
-        int year = localDate.getYear();
-        int Q = 0, R = 0;
-        for (R = 0; R < 4; R++) {
-            if ((year - 1977) % 4 == 0) {
-                Q = (year - 1977) / 4;
-                break;
-            }
-        }
-        int chineseDate = 14 * Q + 10.6 * ()
+        // 计算中国传统节假日对应的日期
+        
+
+        // 计算到清明的天数
+        
+        // 计算到五一的天数
+        LocalDate WuYi = LocalDate.of(localDate.getYear(), 5, 1);
+        this.toWuYi = (int) (WuYi.toEpochDay() - localDate.toEpochDay());
+        //计算到国庆的天数
+        LocalDate GuoQing = LocalDate.of(localDate.getYear(), 10, 1);
+        this.toGuoQing = (int) (GuoQing.toEpochDay() - localDate.toEpochDay());
+        // int chineseDate = 14 * Q + 10.6 * ();
         // 生成结果
         String message = String.format("【摸鱼办】提醒您：%d月%d日%s好，摸鱼人！即使今天是开工第%d天，也一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。\n" +
                 "距离【周末】还有:%d天\n" +

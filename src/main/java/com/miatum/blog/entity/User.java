@@ -4,6 +4,7 @@ public class User {
     private int id;
     private String name;
     private String password;
+    private int level;
     public User(){}
     public User(int id,String name,String password){
         this.id=id;
@@ -34,12 +35,20 @@ public class User {
         this.password = password;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getLevel() {
+        return level;
+    }
     @Override
     public String toString() {
         return "{"+
-                "id:"+this.id+","+
-                "name:"+this.name+","+
-                "password:"+this.password+
+                "id: " + this.id + ", " +
+                "name: " + this.name + ", " +
+                "password:" + this.password +
+                "level:" + this.level +
                 "}";
     }
 }

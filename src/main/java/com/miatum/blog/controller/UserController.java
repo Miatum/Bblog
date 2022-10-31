@@ -14,12 +14,11 @@ public class UserController {
     @Autowired
     private UserService userService;
     private ResponseEnum responseEnum;
-    @RequestMapping("/login")
+    @RequestMapping("/rootLogin")
     @ResponseBody
     public String  mangerLogIn (@RequestBody String request) {
         JSONObject jsonObject = JSON.parseObject(request);
-        String username = jsonObject.getString("username");
-        String password = jsonObject.getString("password");
-        return userService.mangerLogIn(username, password).toString();
+        String PIN = jsonObject.getString("PIN");
+        return userService.mangerLogIn(PIN).toString();
     }
 }

@@ -72,7 +72,11 @@ public class BlogController {
     public int insertBlog(@RequestBody Blog blog) {
         int result = blogService.insertBlog(blog);
         int id = blogService.lastInsertId();
-        return id;
+        if (result > 0) {
+            return id;
+        } else {
+            return 0;
+        }
     }
     @RequestMapping("/updatePicServer")
     @ResponseBody

@@ -15,13 +15,13 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
     private ResponseEnum responseEnum;
-    public ResponseEnum mangerLogIn(String username, String password) {
-        User manager = userMapper.selectUserByName(username);
+    public ResponseEnum mangerLogIn(String PIN) {
+        User root = userMapper.getRoot();
         Date date = new Date();
         SimpleDateFormat smpd = new SimpleDateFormat("yyyyMMdd");
-        manager.setPassword(smpd.format(date) + manager.getPassword());
+        root.setPassword(smpd.format(date) + root.getPassword());
         try {
-            if (password.equals(manager.getPassword())) {
+            if (PIN.equals(root.getPassword())) {
                 return responseEnum.SUCCESS;
             } else {
                 return responseEnum.FAILED;

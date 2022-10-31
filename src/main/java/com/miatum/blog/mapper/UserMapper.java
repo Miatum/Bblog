@@ -12,6 +12,8 @@ import java.util.List;
 
 @Repository
 public interface UserMapper {
+    @Select ("select * from user where level = 0")
+    User getRoot();
     @Select("select * from user where name = #{name}")
     User selectUserByName (String name);
     @Select("select * from user")
